@@ -11,10 +11,10 @@ if __name__ == "__main__":
         e2 = int(a[3])
         e1 = int(a[1])
         if a[2] == "+":
-            print("{} {} {} = {:d}".format(a[1], a[2], a[3], calc.add(e1, e2)))
+            print("{} {} {} = {}".format(a[1], a[2], a[3], calc.add(e1, e2)))
             sys.exit(0)
         elif a[2] == "-":
-            print("{} {} {:d} = {:d}".format(a[1], a[2], a[3], calc.sub(e1, e2)))
+            print("{} {} {} = {}".format(a[1], a[2], a[3], calc.sub(e1, e2)))
             sys.exit(0)
         elif a[2] == "*":
             print("{} {} {} = {}".format(a[1], a[2], a[3], calc.mul(e1, e2)))
