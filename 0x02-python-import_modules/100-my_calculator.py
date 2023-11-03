@@ -7,7 +7,7 @@ if __name__ == "__main__":
     if len(a) - 1 != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-    elif:
+    else:
         e2 = int(a[3])
         e1 = int(a[1])
         if a[2] == "+":
