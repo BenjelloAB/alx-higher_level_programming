@@ -1,18 +1,16 @@
 #!/usr/bin/python3
 
-def max_lst(lst):
-    maxy = lst[0]
-    for i in range(1, len(lst)):
-        if maxy < lst[i]:
-            maxy = lst[i]
-            index = i
-    return (maxy, index)
+def max_items(items):
+    maxy = items[0][1]
+    for i in range(1, len(items)):
+        if maxy < items[i][1]:
+            name = items[i][0]
+    return name
 
 
 def best_score(a_dictionary):
     if a_dictionary is None:
         return None
-    lst_vals = list(a_dictionary.values())
-    lst_keys = list(a_dictionary.keys())
-    info_tuple = max_lst(lst_vals)
-    return lst_keys[info_tuple[1]]
+    items = list(a_dictionary.items())
+    info_tuple = max_items(items)
+    return info_tuple
