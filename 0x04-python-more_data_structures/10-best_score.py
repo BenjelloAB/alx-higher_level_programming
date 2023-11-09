@@ -15,4 +15,4 @@ def best_score(a_dictionary):
     lst_vals = list(a_dictionary.values())
     lst_keys = list(a_dictionary.keys())
     info_tuple = max_lst(lst_vals)
-    return lst_keys[info_tuple[1]]    
+    return lst_keys[info_tuple[1]]
