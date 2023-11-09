@@ -4,7 +4,7 @@ def max_items(items):
     maxy = items[0][1]
     for i in range(1, len(items)):
         if maxy < items[i][1]:
-			maxy = items[i][1]
+            maxy = items[i][1]
             name = items[i][0]
     return name
 
