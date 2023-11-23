@@ -44,6 +44,11 @@ class Square:
 
     @position.setter
     def position(self, value):
+        """setter for the position field
+
+        Args:
+            value (int, int): position tuple
+        """
         if(not type(value) is tuple or
                 len(value) != 2 or
                 not all(type(num) == int for num in value) or
