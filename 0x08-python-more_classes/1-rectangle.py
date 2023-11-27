@@ -2,7 +2,7 @@
 """real definition of recatangle"""
 
 
-class Retangle:
+class Rectangle:
     """
      defining the width and height of a rectangle
     """
