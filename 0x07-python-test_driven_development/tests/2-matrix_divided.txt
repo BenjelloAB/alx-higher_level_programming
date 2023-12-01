@@ -24,13 +24,61 @@ Testing a matrix item with type String:
             ...
         TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-Testing a mtrix with different row sizes:
+Testing a matrix with different row sizes:
 
 	>>> matrix = [[1, 2, 3], [4, 5, 6], [5]]
         >>> matrix_divided(matrix, 2)
         Traceback (most recent call last):
             ...
         TypeError: Each row of the matrix must have the same size
+
+Testing with an  empty matrix :
+
+   	>>> matrix_divided([], 2)
+    	Traceback (most recent call last):
+    	...
+    	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+More empty matrix testing:
+	
+	>>> matrix_divided([[]], 2)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[], [], []], 10)
+    	Traceback (most recent call last):
+    	...
+    	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing with a different type for div (not int or float):
+
+	>>> matrix_divided([[2]], "farhome")
+	Traceback (most recent call last):
+    	...
+   	TypeError: div must be a number
+
+Testing with one missing argument:
+
+	>>> matrix_divided()
+    	Traceback (most recent call last):
+    	...
+    	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+
+Testing with a string as first arg:
+	
+	>>> matrix_divided("usa", 1)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing none as first arg:
+	
+	>>> matrix_divided(none, 4)
+    	Traceback (most recent call last):
+   	...
+	NameError: name 'none' is not defined
 
 Testing Normal Cases:
 ---------------------
@@ -40,3 +88,25 @@ Testing a normal case:
 	>>> matrix = [[1, 2, 3], [4, 5, 6]]
         >>> matrix_divided(matrix, 3)
         [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Test one element:
+	
+	>>> matrix_divided([[4]], 4)
+	[[1.0]]
+
+Test if the original matrix was altered:
+	>>> m =  [[2, 4, 8], [1, 2, 3]]
+    	>>> matrix_divided(m, 2)
+	[[1.0, 2.0, 4.0], [0.5, 1.0, 1.5]]
+	>>> m[1][1]
+	2
+
+Test division with negative:
+
+	>>> matrix_divided([[2, 4, 8], [1, 2, 3]], -3)
+	[[-0.67, -1.33, -2.67], [-0.33, -0.67, -1.0]]
+
+Test diviosn by inf :
+	
+	>>> matrix_divided([[2, 4, 8], [1, 22, 3]], float('inf'))
+	[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
