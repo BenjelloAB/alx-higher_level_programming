@@ -1,0 +1,70 @@
+The `4-print_square` moduel tests:
+=================================
+
+Import module:
+    >>> print_square = __import__('4-print_square').print_square
+
+Testing normal print 0:
+    >>> print_square(0)
+
+
+Testing normal print 3:
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+Testing normal print 10:
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+Testing negative values for size:
+    >>> print_square(-11)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+Testing float values for size:
+    >>> print_square(11.0)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Testing str values for size param:
+    >>> print_square("Ben")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Testing none:
+    >>> print_square(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Testing inf:
+    >>> print_square(float('inf'))
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Testing nan:
+    >>> print_square(float('nan'))
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Testing no  argument:
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
