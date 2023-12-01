@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-
+Module that defines a square printing function
 """
 
 
 def print_square(size):
     """
-    a function that prints a square of size cols 
+    a function that prints a square of size cols
     and size rows
 
     Args:
