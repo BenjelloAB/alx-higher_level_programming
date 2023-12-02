@@ -1,0 +1,140 @@
+The ``5-text_indentation`` module
+============================
+
+
+Import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Testing with no delim:
+    >>> text_indentation("Can Ben")
+    Can Ben
+
+Testing with string with spaces:
+    >>> text_indentation("Ben          ")
+    Ben
+
+Testing with string with spaces 2:
+    >>> text_indentation("        Ben")
+    Ben
+    
+Testing with string with spaces 3:
+    >>> text_indentation("        Ben          ")
+    Ben
+    
+Testing with string with empty string:
+    >>> text_indentation("")
+
+Testing with string with empty string 2:
+    >>> text_indentation("      ")
+
+Testing with simple:
+    >>> text_indentation("Can: Ben")
+    Can:
+    <BLANKLINE>
+    Ben
+
+Testing with delims with spaces:
+    >>> text_indentation("      ?:  :  ")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Testing with newline:
+    >>> text_indentation("\n")
+    <BLANKLINE>
+
+Testing with newline 2:
+    >>> text_indentation("\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
+
+Testing with newline 3:
+    >>> text_indentation("Can\n\n")
+    Can
+    <BLANKLINE>
+
+Testing with all delimeters:
+    >>> text_indentation("Can: Ben? school. Succ")
+    Can:
+    <BLANKLINE>
+    Ben?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    Succ
+
+Testing with all delimeters with spaces:
+
+    >>> text_indentation("Can   :     Ben    ?    school.    Succ")
+    Can:
+    <BLANKLINE>
+    Ben?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    Succ
+
+Testing with all delimeters with spaces at end:
+
+    >>> text_indentation("Can   :     Ben    ?    school.    Succ     ")
+    Can:
+    <BLANKLINE>
+    Ben?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    Succ
+
+Testing with just delimeters:
+
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Testing with just delimeters 2:
+
+    >>> text_indentation("     ?   ")
+    ?
+    <BLANKLINE>
+
+Testing with nonindent inside indent:
+
+    >>> text_indentation("?Can.")
+    ?
+    <BLANKLINE>
+    Can.
+    <BLANKLINE>
+
+Testing with existing newlines:
+    >>> text_indentation("?\n\n.\n\n:")
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Testing with none:
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Testing with number:
+
+    >>> text_indentation(90)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
