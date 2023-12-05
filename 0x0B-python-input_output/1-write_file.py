@@ -1,4 +1,4 @@
-#!/usr/bin./python3
+#!/usr/bin/python3
 '''This module defines a method that write a string to a file'''
 
 
