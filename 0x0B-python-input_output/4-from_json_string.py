@@ -8,6 +8,6 @@ def from_json_string(my_str):
     function that deserialize an object
 
     Args:
-        my_obj: a Python object of any type
+        my_str: a Python string representation of our obj
     '''
     return json.loads(my_str)
