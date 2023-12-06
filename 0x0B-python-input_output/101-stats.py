@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''Module to print the status of requests'''
 
 
 def print_stats(size, sc):
@@ -16,7 +17,6 @@ def print_stats(size, sc):
 if __name__ == "__main__":
     import sys
 
-    
     sc = {}
     codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     count = 0
@@ -29,14 +29,11 @@ if __name__ == "__main__":
                 count = 1
             else:
                 count += 1
-
             line = line.split()
-
             try:
                 size += int(line[-1])
             except (IndexError, ValueError):
                 pass
-
             try:
                 if line[-2] in codes:
                     if sc.get(line[-2], -1) == -1:
@@ -47,7 +44,6 @@ if __name__ == "__main__":
                 pass
 
         print_stats(size, sc)
-
     except KeyboardInterrupt:
         print_stats(size, sc)
         raise
