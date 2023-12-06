@@ -1,19 +1,22 @@
 #!/usr/bin/python3
 """
-function defined to insert a line of text to a file
-with each line ending with a string
+function that searches and updates
 """
 
 
 def append_after(filename="", search_string="", new_string=""):
-    '''method to  Search and update
+    '''function to insert a line after a string
+
+    Args:
+       filename (str):  name of the file
+       search_string (str): string to search for
+       new_string (str):  string to insert
     '''
-    with open(filename, 'r+') as f:
-        lines = f.readlines()
-        i = 0
-        for line in lines:
-            if line.find(search_string) is not -1:
-                lines.insert(i + 1, new_string)
-            i += 1
-        f.seek(0)
-        f.write("".join(lines))
+    txt = ""
+    with open(filename) as myfile_r:
+        for line in myfile_r:
+            txt += line
+            if search_string in line:
+                txt += new_string
+    with open(filename, "w") as myfile_w:
+        myfile_w.write(txt)
