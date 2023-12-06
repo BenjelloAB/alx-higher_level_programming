@@ -1,38 +1,53 @@
 #!/usr/bin/python3
-import sys
 
 
-def print_status():
-    '''
-        function to print the status of the request...
-    '''
-    c = 0
-    s = 0
-    file_s = 0
-    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
-                    "403": 0, "404": 0, "405": 0, "500": 0}
+def print_stats(size, sc):
+    """function that prints the status of the request
 
-    for li in sys.stdin:
-        line = li.split()
-        try:
-            s += int(line[-1])
-            code = line[-2]
-            status_codes[code] += 1
-        except Exception:
-            continue
-        if c == 9:
-            print("File s: {}".format(s))
-            for key, val in sorted(status_codes.items()):
-                if (val != 0):
-                    print("{}: {}".format(key, val))
-            c = 0
-        c += 1
-    if c < 9:
-        print("File s: {}".format(s))
-        for key, val in sorted(status_codes.items()):
-            if (val != 0):
-                print("{}: {}".format(key, val))
+    Args:
+        size (int): The read file size
+        sc (dict): The count of status codes
+    """
+    print("File size: {}".format(size))
+    for key in sorted(sc):
+        print("{}: {}".format(key, sc[key]))
 
 
 if __name__ == "__main__":
-    print_status()
+    import sys
+
+    
+    sc = {}
+    codes = ['200', '301', '400', '401', '403', '404', '405', '500']
+    count = 0
+    size = 0
+
+    try:
+        for line in sys.stdin:
+            if count == 10:
+                print_stats(size, sc)
+                count = 1
+            else:
+                count += 1
+
+            line = line.split()
+
+            try:
+                size += int(line[-1])
+            except (IndexError, ValueError):
+                pass
+
+            try:
+                if line[-2] in codes:
+                    if sc.get(line[-2], -1) == -1:
+                        sc[line[-2]] = 1
+                    else:
+                        sc[line[-2]] += 1
+            except IndexError:
+                pass
+
+        print_stats(size, sc)
+
+    except KeyboardInterrupt:
+        print_stats(size, sc)
+        raise
