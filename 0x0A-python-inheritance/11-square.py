@@ -4,10 +4,10 @@ Improving the previous Square Class
 """
 
 
-Rectangle = __import__('10-square').Rectangle
+PrevSquare = __import__('10-square').Square
 
 
-class Square(Rectangle):
+class Square(PrevSquare):
     """
     Improving Class Square
     """
@@ -19,4 +19,4 @@ class Square(Rectangle):
 
     def __str__(self):
         """String rep"""
-        return '[Square] {0:d}/{0:d}'.format(self.__size)
+        return '[Square] {0:d}/{0:d}'.format(self.__size, self.__size)
