@@ -4,16 +4,17 @@ Improving the previous Square Class
 """
 
 
-PrevSquare = __import__('10-square').Square
+Rectangle = __import__('10-square').Rectangle
 
 
-class Square(PrevSquare):
+class Square(Rectangle):
     """
     Improving Class Square
     """
 
     def __init__(self, size):
         """Constructor"""
+        self.__size = size
         super().__init__(size)
 
     def __str__(self):
