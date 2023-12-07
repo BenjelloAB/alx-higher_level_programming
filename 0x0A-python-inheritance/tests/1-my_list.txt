@@ -1,0 +1,111 @@
+Tests for the 1-my_list.py module
+=================================
+
+Importing the class from the module:
+
+>>> MyList = __import__("1-my_list").MyList
+
+Check for module docstring:
+
+>>> m = __import__("1-my_list").__doc__
+>>> len(m) > 1
+True
+
+Check for class docstring:
+
+>>> c = __import__("1-my_list").MyList.__doc__
+>>> len(c) > 1
+True
+
+Check for method docstring:
+
+        >>> f = __import__("1-my_list").MyList.print_sorted.__doc__
+        >>> len(f) > 1
+        True
+
+Check given test case
+>>> my_list = MyList()
+
+>>> my_list.append(1)
+
+>>> my_list.append(4)
+
+>>> my_list.append(2)
+
+>>> my_list.append(3)
+
+>>> my_list.append(5)
+
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+Check empty object
+>>> obj1 = MyList()
+
+>>> print(obj1)
+[]
+
+>>> obj1.print_sorted()
+[]
+
+Check negative values
+>>> obj_2 = MyList()
+
+>>> obj_2.append(-1)
+
+>>> obj_2.append(0)
+
+>>> obj_2.append(-233)
+
+>>> obj_2.append(-9)
+
+>>> print(obj_2)
+[-2, 0, -200, -9]
+
+>>> obj_2.print_sorted()
+[-200, -9, -2, 0]
+
+Check NULL object
+>>> obj_3 = MyList()
+
+>>> obj_3.append(NULL)
+Traceback (most recent call last):
+    ...
+NameError: name 'NULL' is not defined
+
+>>> print(obj_3)
+[]
+
+>>> obj_3.print_sorted()
+[]
+
+Check NaN object
+>>> obj_4 = MyList()
+
+>>> obj_4.append(NaN)
+Traceback (most recent call last):
+    ...
+NameError: name 'NaN' is not defined
+
+>>> print(obj_4)
+[]
+
+>>> obj_4.print_sorted()
+[]
+
+Check None object
+>>> obj_5 = MyList()
+
+>>> obj_5.append(None)
+
+>>> print(obj_5)
+[None]
+
+>>> obj_5.print_sorted()
+[None]
