@@ -19,37 +19,61 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        '''
+            Returning the private width attr
+        '''
         return (self.__width)
 
     @width.setter
     def width(self, value):
+        '''
+        Setting the private width attr
+        '''
         self.__class__.checker("width", value)
         self.__width = value
 
     @property
     def height(self):
+        '''
+            Returning the private height attr
+        '''
         return self.__height
 
     @height.setter
     def height(self, value):
+        '''
+            Setting the private height attr
+        '''
         self.__class__.checker("height", value)
         self.__height = value
 
     @property
     def x(self):
+        '''
+            getting the private attribute x
+        '''
         return self.__x
 
     @x.setter
     def x(self, value):
+        '''
+            setting the private attribute x
+        '''
         self.__class__.checker("x", value)
         self.__x = value
 
     @property
     def y(self):
+        '''
+            returning the private attribute y
+        '''
         return self.__y
 
     @y.setter
     def y(self, value):
+        '''
+            Setting the private attribute y
+        '''
         self.__class__.checker("y", value)
         self.__y = value
 
@@ -61,15 +85,24 @@ class Rectangle(Base):
             raise ValueError("{} must be >= 0".format(name))
 
     def area(self):
+        '''
+           Calculates the area of the recatangle
+        '''
         return self.width * self.height
 
     def display(self):
+        '''
+            Prints a representation of the rectangle
+        '''
         for i in range(self.height):
             for j in range(self.width):
                 print("#", end="")
             print()
 
     def __str__(self):
+        '''
+            Overwriting the string method
+        '''
         w = self.width
         h = self.height
         y = self.y
