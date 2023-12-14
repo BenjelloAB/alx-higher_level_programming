@@ -140,3 +140,5 @@ class Rectangle(Base):
                     self.x = v
                 if k == "y":
                     self.y = v
+                if k == "id":
+                    self.id = v
