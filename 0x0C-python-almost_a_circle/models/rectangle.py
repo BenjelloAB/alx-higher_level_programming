@@ -73,6 +73,7 @@ class Rectangle(Base):
         w = self.width
         h = self.height
         y = self.y
+        ed = self.id
         x = self.x
-        cls = self.__class__.name
-        return "[{}] ({}) {}/{} - {}/{}".format(cls, x, y, w, h)
+        cls = self.__class__.__name__
+        return "[{}] ({}) {}/{} - {}/{}".format(cls, ed, x, y, w, h)
