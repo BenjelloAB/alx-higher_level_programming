@@ -20,3 +20,43 @@ class Square(Rectangle):
         x = self.x
         y = self.y
         return "[Square] ({:d}) {:d}/{:d} - {:d}".format(ed, x, y, s)
+
+    @property
+    def size(self):
+        return super().width
+
+    @size.setter
+    def size(self, size):
+        super().checker("width", size)
+        self.width = size
+        self.height = size
+
+    def update(self, *args, **kwargs):
+        """update the square attributes
+        """
+
+        if len(args) > 0:
+            if len(args) > 0 and args[0] is not None:
+                self.id = args[0]
+            if len(args) > 1 and args[1] is not None:
+                self.width = args[1]
+                self.height = args[1]
+            if len(args) > 2 and args[2] is not None:
+                self.x = args[2]
+            if len(args) > 3 and args[3] is not None:
+                self.y = args[3]
+        else:
+            for k, v in kwargs.items():
+                if hasattr(self, k) is True:
+                    setattr(self, k, v)
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the object
+        """
+        dic = {}
+        dic['id'] = self.id
+        dic['size'] = self.width
+        dic['x'] = self.x
+        dic['y'] = self.y
+        return dic

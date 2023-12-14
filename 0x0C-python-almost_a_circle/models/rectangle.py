@@ -142,3 +142,15 @@ class Rectangle(Base):
                     self.y = v
                 if k == "id":
                     self.id = v
+
+    def to_dictionary(self):
+        """
+        Returns a dictionary representation of the object
+        """
+        dic = {}
+        dic['x'] = self.x
+        dic['y'] = self.y
+        dic['id'] = self.id
+        dic['height'] = self.height
+        dic['width'] = self.width
+        return dic
