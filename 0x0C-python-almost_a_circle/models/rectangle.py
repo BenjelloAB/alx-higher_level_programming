@@ -66,12 +66,13 @@ class Rectangle(Base):
     def display(self):
         for i in range(self.height):
             for j in range(self.width):
-                print("#",end="")
+                print("#", end="")
             print()
 
     def __str__(self):
-        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__, 
-                self.id, self.x, self.y, self.width, self.height)
-
-
-        
+        w = self.width
+        h = self.height
+        y = self.y
+        x = self.x
+        cls = self.__class__.name
+        return "[{}] ({}) {}/{} - {}/{}".format(cls, x, y, w, h)
