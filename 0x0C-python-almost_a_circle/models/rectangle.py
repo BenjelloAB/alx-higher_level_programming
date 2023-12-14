@@ -116,6 +116,9 @@ class Rectangle(Base):
         return "[{}] ({}) {}/{} - {}/{}".format(cls, ed, x, y, w, h)
 
     def update(self, *args):
+        '''
+            updates values
+        '''
         if len(args) > 0 and args[0] is not None:
             self.id = args[0]
         if len(args) > 1 and args[1] is not None:
