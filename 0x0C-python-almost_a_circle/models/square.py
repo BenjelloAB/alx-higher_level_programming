@@ -17,5 +17,4 @@ class Square(Rectangle):
         ed = self.id
         x = self.x
         y = self.y
-        n = self.__class__.__name__
-        return "[{}] ({}) {}/{} - {}".format(n, ed, x, y, s)
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(ed, x, y, s)
