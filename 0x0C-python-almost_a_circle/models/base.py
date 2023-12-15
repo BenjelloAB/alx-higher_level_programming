@@ -36,7 +36,8 @@ class Base:
         if list_objs is not None:
             for item in list_objs:
                 dic_it = item.to_dictionary()
-                list_dict.append(dic_it)
+                json_d = json.loads(cls.to_json_string(dic_it))
+                list_dict.append(json_d)
             with open("{}.json".format(cls.__name__), "w") as fd:
                 json.dump(list_dict, fd)
 
