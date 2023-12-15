@@ -59,5 +59,3 @@ class Base:
             r = Square(7)
         r.update(**dictionary)
         return r
-        
-
