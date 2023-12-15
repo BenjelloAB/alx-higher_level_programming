@@ -23,13 +23,18 @@ class Square(Rectangle):
 
     @property
     def size(self):
-        return super().width
+        """
+        getter for the size attr
+        """
+        return self.width
 
     @size.setter
-    def size(self, size):
-        super().checker("width", size)
-        self.width = size
-        self.height = size
+    def size(self, value):
+        """
+        setter for the size attr
+        """
+        self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         """update the square attributes
