@@ -44,3 +44,20 @@ class Base:
         Returns the list of the JSON string representationN
         """
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+            Creates an instance with all the attributes ready set
+        """
+        from models.rectangle import Rectangle
+        from models.square import Square
+
+        if cls.__name__ == "Rectangle":
+            r = Rectangle(4, 7)
+        if cls.__name__ == "Square":
+            r = Square(7)
+        r.update(**dictionary)
+        return r
+        
+
