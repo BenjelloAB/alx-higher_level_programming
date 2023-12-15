@@ -43,6 +43,8 @@ class Base:
         """
         Returns the list of the JSON string representationN
         """
+        if json_string is None or json_string == "":
+            return []
         return json.loads(json_string)
 
     @classmethod
