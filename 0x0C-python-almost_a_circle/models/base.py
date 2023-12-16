@@ -64,3 +64,23 @@ class Base:
             r = Square(7)
         r.update(**dictionary)
         return r
+
+    @classmethod
+    def load_from_file(cls):
+        """
+            a method that returns a list of instances from a file
+        """
+        file_name = cls.__name__ + ".json"
+        instances = []
+        try:
+            with open(file_name, "r") as fd:
+                json_data = fd.read()
+                data = cls.from_json_string(json_data)
+        except FileNotFoundError:
+            return instances
+
+        for item in data:
+            r = cls.create(**item)
+            instances.append(r)
+
+        return instances
