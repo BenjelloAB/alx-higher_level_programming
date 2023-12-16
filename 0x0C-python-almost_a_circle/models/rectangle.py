@@ -11,6 +11,9 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """
+        initialize the instance
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -29,7 +32,7 @@ class Rectangle(Base):
         '''
         Setting the private width attr
         '''
-        self.__class__.checker("width", value)
+        self.__class__.checker2("width", value)
         self.__width = value
 
     @property
@@ -44,7 +47,7 @@ class Rectangle(Base):
         '''
             Setting the private height attr
         '''
-        self.__class__.checker("height", value)
+        self.__class__.checker2("height", value)
         self.__height = value
 
     @property
@@ -59,7 +62,7 @@ class Rectangle(Base):
         '''
             setting the private attribute x
         '''
-        self.__class__.checker("x", value)
+        self.__class__.checker1("x", value)
         self.__x = value
 
     @property
@@ -74,15 +77,22 @@ class Rectangle(Base):
         '''
             Setting the private attribute y
         '''
-        self.__class__.checker("y", value)
+        self.__class__.checker1("y", value)
         self.__y = value
 
     @staticmethod
-    def checker(name, value):
-        if not isinstance(value, int):
+    def checker1(name, value):
+        if not type(value) is int:
             raise TypeError("{} must be an integer".format(name))
         if value < 0:
             raise ValueError("{} must be >= 0".format(name))
+
+    @staticmethod
+    def checker2(name, value):
+        if not type(value) is int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(name))
 
     def area(self):
         '''

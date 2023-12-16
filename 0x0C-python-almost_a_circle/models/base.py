@@ -11,6 +11,9 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """
+            Initialize the instance
+        """
         if id is not None:
             self.id = id
         else:
@@ -38,8 +41,8 @@ class Base:
                 dic_it = item.to_dictionary()
                 json_d = json.loads(cls.to_json_string(dic_it))
                 list_dict.append(json_d)
-            with open("{}.json".format(cls.__name__), "w") as fd:
-                json.dump(list_dict, fd)
+        with open("{}.json".format(cls.__name__), "w") as fd:
+            json.dump(list_dict, fd)
 
     @staticmethod
     def from_json_string(json_string):
