@@ -82,6 +82,9 @@ class Rectangle(Base):
 
     @staticmethod
     def checker1(name, value):
+        """
+        checker 1
+        """
         if not type(value) is int:
             raise TypeError("{} must be an integer".format(name))
         if value < 0:
@@ -89,6 +92,9 @@ class Rectangle(Base):
 
     @staticmethod
     def checker2(name, value):
+        """
+            checker 2
+        """
         if not type(value) is int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
