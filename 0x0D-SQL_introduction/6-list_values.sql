@@ -1,0 +1,3 @@
+-- lists all rows of first_table from the  hbtn_0c_0 db...
+
+SELECT * FROM first_table;
