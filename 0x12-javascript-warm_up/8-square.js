@@ -1,6 +1,6 @@
 #!/usr/bin/node
 if(isNaN(process.argv[2]))
-	console.log("Missing size")
+	console.log('Missing size');
 else{
 	let rows = Number(process.argv[2]);
 	let cols = Number(process.argv[2]);
@@ -9,7 +9,7 @@ else{
 	{
 		for(let j = 0; j < cols; j++)
 		{
-			process.stdout.write("X");
+			process.stdout.write('X');
 		}
 		console.log()
 	}
