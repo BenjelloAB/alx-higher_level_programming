@@ -1,5 +1,5 @@
 #!/usr/bin/node
-if (process.argv.length > 3) { console.log('Too many arguments'); } else {
-  const regex = /^\d+$/;
-  if (regex.test(process.argv[2])) { console.log('My number: ', process.argv[2]); } else { console.log('Not a number'); }
-}
+if (!isNaN(process.argv[2] || process.atgv[2] === undefined)
+	console.log('Not a number');
+else
+	console.log('My number:', parseInt(process.argv[2]));
